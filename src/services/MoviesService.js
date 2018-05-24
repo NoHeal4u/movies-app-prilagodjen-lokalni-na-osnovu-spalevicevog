@@ -1,7 +1,7 @@
 import Axios from 'axios'
 
 const axios = Axios.create({
-    baseURL: 'http://localhost:3000/api'
+    baseURL: 'http://localhost:8000/api'
 })
 
 const ENDPOINTS = {
@@ -18,5 +18,16 @@ export default {
         term
       }
     })
+  },
+  remove (id) {
+    return axios.delete(`MOVIES/${id}`)
+  },
+
+  edit (movie) {
+    return axios.put(`MOVIES/${movie.id}`, movie)
+  },
+
+  get (id) {
+    return axios.get(`MOVIES/${id}`)
   }
 }
